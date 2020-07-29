@@ -14,3 +14,18 @@ Nowadays there is more and more middleware software available that overlays the 
 | CLUSTER_NAME          | Name of the kubernetes-cluster to be backed up  | 'test-cluster-0' |
 | NAMESPACES            | Relevent namespaces to be secured | 'default,production,staging,testing' |
 | RESOURCES             | Relevant resources to be secored  | 'ingresses.configmaps,secrets,deployments' |
+
+
+## Usage
+```bash
+#!/bin/bash
+docker build -t kubefreezer .
+docker run --rm -it \
+    -e CLUSTER_NAME='hoou-cluster-0' \
+    -e NAMESPACES='testing,staging,default' \
+    -e RESOURCES='ingresses,secrets,configmaps,deployments' \
+    -v /Users/vngu/.kube/config:/app/kubeconfig \
+    -v $(pwd)/data:/var/lib/data \
+    kubefreezer:latest
+```
+
