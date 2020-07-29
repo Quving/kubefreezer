@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+
 function  logInfo() {
     color=`tput setaf 2`
     echo -e $2 "[ ${color}Info$(tput sgr0) ]    $(date "+%D-%T")\t $(tput bold)$1$(tput sgr0)"
@@ -31,6 +32,7 @@ mkdir -p /var/lib/data
 DIRECTORY="/var/lib/data/$(date '+%Y-%m-%d')_$CLUSTER_NAME"
 IFS=','
 KUBECONFIG='./kubeconfig'
+
 read -ra RESOURCES <<< "$RESOURCES"
 read -ra NAMESPACES <<< "$NAMESPACES"
 

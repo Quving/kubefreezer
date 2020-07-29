@@ -10,7 +10,7 @@ RUN chmod +x kubectl
 RUN ln -s /kubectl /usr/bin/kubectl
 
 WORKDIR /app
-COPY . .
+COPY freeze.sh freeze.sh
 RUN chmod u+x freeze.sh
 
 CMD ["./freeze.sh"]
