@@ -49,7 +49,7 @@ mkdir -p $DIRECTORY
 for resource in "${RESOURCES[@]}"; do
     printf "\t%s\n" "Create backups for resource: $resource..."
     for namespace in "${NAMESPACES[@]}"; do
-        file=$DIRECTORY/$resource"_"$i.yaml
+        file=$DIRECTORY/$resource"_"$namespace.yaml
 
         printf '\t\t%s\n' "Backup '$resource' for '$namespace'"
         kubectl get --kubeconfig $KUBECONFIG $resource -n $namespace -o yaml > $file
