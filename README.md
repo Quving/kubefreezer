@@ -13,7 +13,7 @@ Nowadays there is more and more middleware software available that overlays the 
 | Environment Variable  | Description | Example  |
 |---------------------- |----------|-------------|
 | CLUSTER_NAME          | Name of the kubernetes-cluster to be backed up  | 'test-cluster-0' |
-| NAMESPACES            | Relevent namespaces to be secured | 'default,production,staging,testing' |
+| NAMESPACES            | Relevant namespaces to be secured | 'default,production,staging,testing' |
 | RESOURCES             | Relevant resources to be secored  | 'ingresses.configmaps,secrets,deployments' |
 
 
