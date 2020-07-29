@@ -1,5 +1,6 @@
-# Kubefreezer
+[![Build Status](https://drone.quving.com/api/badges/Quving/kubefreezer/status.svg)](https://drone.quving.com/Quving/kubefreezer)
 
+# Kubefreezer
 Freezes the running kubernetes cluster into local yaml manifests.
 
 ## Motivation
