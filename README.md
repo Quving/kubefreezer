@@ -22,11 +22,11 @@ Nowadays there is more and more middleware software available that overlays the 
 #!/bin/bash
 docker build -t kubefreezer .
 docker run --rm -it \
-    -e CLUSTER_NAME='hoou-cluster-0' \
-    -e NAMESPACES='testing,staging,default' \
+    -e CLUSTER_NAME='testing-cluster-0' \
+    -e NAMESPACES='testing,staging,production,default' \
     -e RESOURCES='ingresses,secrets,configmaps,deployments' \
-    -v /Users/vngu/.kube/config:/app/kubeconfig \
-    -v $(pwd)/data:/var/lib/data \
+    -v /path/to/kubeconfig:/app/kubeconfig \
+    -v /path/to/backup-dir/:/var/lib/data \
     kubefreezer:latest
 ```
 
