@@ -30,3 +30,26 @@ docker run --rm -it \
     kubefreezer:latest
 ```
 
+## Full Example Script
+```
+#!/bin/bash
+#
+# Author:
+# Quving (https://github.com/Quving)
+#
+# Description
+# This script creates a backup of the kubernetes-cluster using kubectl. It creates snapshots of different resources.
+
+BACKUP_DIR=manifests/$(date +%F)
+
+mkdir -p $BACKUP_DIR
+
+docker run --rm -it \
+    -e CLUSTER_NAME='quving' \
+    -e NAMESPACES='default,apps,infrastructure' \
+    -e RESOURCES='ingresses,secrets,configmaps,deployments,certificates' \
+    -v $(pwd)/kubeconfig:/app/kubeconfig \
+    -v $(pwd)/$BACKUP_DIR:/var/lib/data \
+    quving/kubefreezer:v1.0.0
+
+```
