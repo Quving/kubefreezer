@@ -15,6 +15,7 @@ Nowadays there is more and more middleware software available that overlays the 
 | CLUSTER_NAME          | Name of the kubernetes-cluster to be backed up  | 'test-cluster-0' |
 | NAMESPACES            | Relevant namespaces to be secured | 'default,production,staging,testing' |
 | RESOURCES             | Relevant resources to be secored  | 'ingresses.configmaps,secrets,deployments' |
+| KUBECTL_OPTIONS (optional) | Options that is passed to kubectl.  | '--insecure-skip-tls-verify' |
 
 
 ## Usage
@@ -27,7 +28,7 @@ docker run --rm -it \
     -e RESOURCES='ingresses,secrets,configmaps,deployments' \
     -v /path/to/kubeconfig:/app/kubeconfig \
     -v /path/to/backup-dir/:/var/lib/data \
-    kubefreezer:latest
+    kubefreezer:v1.1.0
 ```
 
 ## Full Example Script
