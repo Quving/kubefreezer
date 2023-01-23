@@ -10,7 +10,7 @@ RUN chmod +x kubectl
 RUN ln -s /kubectl /usr/bin/kubectl
 
 WORKDIR /app
-COPY freeze.sh freeze.sh
-RUN chmod u+x freeze.sh
+COPY entrypoint.sh entrypoint.sh
+RUN chmod u+x entrypoint.sh
 
-CMD ["./freeze.sh"]
+CMD ["./entrypoint.sh"]

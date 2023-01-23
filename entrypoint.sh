@@ -25,6 +25,11 @@ for env in "${ENVS[@]}"; do
     fi
 done
 
+# Kubectl Options Debug
+if [ "$KUBECTL_OPTIONS" != "" ]; then
+    echo 'Passed kubectl options: '$KUBECTL_OPTIONS
+fi
+
 # Setup
 mkdir -p /var/lib/data
 
@@ -54,6 +59,6 @@ for resource in "${RESOURCES[@]}"; do
         file=$DIRECTORY/$resource"_"$namespace.yaml
 
         printf '\t\t%s\n' "Backup '$resource' for '$namespace'"
-        kubectl get --kubeconfig $KUBECONFIG $resource -n $namespace -o yaml > $file
+        kubectl get $KUBECTL_OPTIONS --kubeconfig $KUBECONFIG $resource -n $namespace -o yaml > $file
     done
 done
